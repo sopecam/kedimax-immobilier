@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Agences | KEDIMAX IMMOBILIER</title>
+    <meta name="description" content="Contactez KEDIMAX IMMOBILIER à Yaoundé et Douala. Appels, WhatsApp et rendez-vous en agence.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <header class="navbar-sticky" id="main-header">
+        <div class="container navbar-wrapper">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-icon"><i class="fa-solid fa-building-user"></i></div>
+                <div class="logo-text">
+                    <span class="brand-name">KEDIMAX</span>
+                    <span class="brand-sub">IMMOBILIER</span>
+                </div>
+            </a>
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link" data-i18n="nav.home">Accueil</a></li>
+                    <li><a href="biens.html" class="nav-link">Nos Biens</a></li>
+                    <li><a href="services.html" class="nav-link" data-i18n="nav.services">Nos Services</a></li>
+                    <li><a href="a-propos.html" class="nav-link" data-i18n="nav.about">À Propos</a></li>
+                    <li><a href="contact.html" class="nav-link active" data-i18n="nav.contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="navbar-actions">
+                <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Switch to English"><span>EN</span></button>
+                <button type="button" class="theme-toggle" id="theme-toggle"><i class="fa-solid fa-moon"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-main bg-main">
+        <div class="page-banner bg-primary text-white">
+            <div class="container">
+                <h1 class="page-title">Contactez Nos Conseillers</h1>
+                <p class="page-subtitle">Nous sommes à votre disposition pour vous orienter dans vos démarches immobilières.</p>
+            </div>
+        </div>
+
+        <div class="container section-padding">
+            <div class="contact-grid">
+                <!-- Info cards -->
+                <div class="contact-info-wrapper">
+                    <div class="contact-info-card">
+                        <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div>
+                            <h4>Téléphone & WhatsApp</h4>
+                            <p>+237 6 57519974</p>
+                            <p>+237 6 50355980</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div>
+                            <h4>Email officiel</h4>
+                            <p>contact@kedimax-immobilier.cm</p>
+                            <p>kedimaximmobilier@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div>
+                            <h4>Présence & Intervention</h4>
+                            <p>Yaoundé & Douala, Cameroun</p>
+                            <p class="text-muted-sm">Couverture nationale pour projets fonciers</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="contact-form-card">
+                    <h3>Envoyez-nous un message</h3>
+                    <form id="main-contact-form" class="app-form mt-4" aria-label="Formulaire de contact">
+                        <div class="form-group">
+                            <label for="c-name">Nom et Prénom *</label>
+                            <input type="text" id="c-name" class="form-control" required placeholder="Votre nom">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="c-phone">Téléphone / WhatsApp *</label>
+                                <input type="tel" id="c-phone" class="form-control" required placeholder="+237...">
+                            </div>
+                            <div class="form-group">
+                                <label for="c-email">Email</label>
+                                <input type="email" id="c-email" class="form-control" placeholder="exemple@domaine.cm">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="c-subject">Objet de votre demande</label>
+                            <select id="c-subject" class="form-control">
+                                <option value="Achat d'un bien">Achat d'un bien</option>
+                                <option value="Location de bien">Location de bien</option>
+                                <option value="Mise en gestion">Mise en gestion locative</option>
+                                <option value="Conseil Foncier">Conseil & Titre Foncier</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="c-message">Message *</label>
+                            <textarea id="c-message" class="form-control" rows="4" required placeholder="Précisez votre besoin..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <i class="fa-solid fa-paper-plane"></i> Envoyer le message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-app">
+        <div class="container footer-bottom text-center">
+            <p>&copy; 2026 KEDIMAX IMMOBILIER. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script></body>
+</html>

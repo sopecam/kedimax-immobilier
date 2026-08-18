@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KEDIMAX IMMOBILIER | Agence Immobilière de Confiance au Cameroun</title>
+    <meta name="description" content="KEDIMAX IMMOBILIER - Votre partenaire de confiance pour l'achat, la vente, la location et la gestion immobilière à Yaoundé, Douala et partout au Cameroun.">
+    <meta name="keywords" content="immobilier Cameroun, agence immobilière Yaoundé, maison à vendre Douala, appartement à louer Yaoundé, gestion foncière Cameroun">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="KEDIMAX IMMOBILIER | Votre Partenaire Immobilier au Cameroun">
+    <meta property="og:description" content="Achetez, louez ou confiez la gestion de vos biens immobiliers en toute sécurité avec KEDIMAX IMMOBILIER.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="navbar-sticky" id="main-header">
+        <div class="container navbar-wrapper">
+            <a href="index.html" class="brand-logo" aria-label="KEDIMAX IMMOBILIER - Accueil">
+                <div class="logo-icon"><i class="fa-solid fa-building-user"></i></div>
+                <div class="logo-text">
+                    <span class="brand-name">KEDIMAX</span>
+                    <span class="brand-sub">IMMOBILIER</span>
+                </div>
+            </a>
+
+            <nav class="nav-menu" id="nav-menu" aria-label="Navigation principale">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link active" data-i18n="nav.home">Accueil</a></li>
+                    <li><a href="biens.html?type=achat" class="nav-link" data-i18n="nav.buy">Acheter</a></li>
+                    <li><a href="biens.html?type=location" class="nav-link" data-i18n="nav.rent">Louer</a></li>
+                    <li><a href="services.html" class="nav-link" data-i18n="nav.services">Nos Services</a></li>
+                    <li><a href="a-propos.html" class="nav-link" data-i18n="nav.about">À Propos</a></li>
+                    <li><a href="contact.html" class="nav-link" data-i18n="nav.contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="navbar-actions">
+                <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Changer le thème">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Switch Language">
+                    <span>EN</span>
+                </button>
+                <a href="https://wa.me/237655909868?text=Bonjour%20KEDIMAX%20IMMOBILIER,%20je%20souhaite%20obtenir%20des%20informations." 
+                   target="_blank" rel="noopener" class="btn btn-whatsapp hide-mobile">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </a>
+                <button type="button" class="mobile-toggle" id="mobile-toggle" aria-label="Ouvrir le menu mobile" aria-expanded="false">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <span class="badge badge-accent mb-3" data-i18n="hero.badge"><i class="fa-solid fa-shield-halved"></i> Agence Immobilière Certifiée au Cameroun</span>
+                    <h1 class="hero-title" data-i18n="hero.title">Trouvez le bien qui concrétise vos projets d'avenir.</h1>
+                    <p class="hero-subtitle" data-i18n="hero.subtitle">Découvrez notre sélection rigoureuse d'appartements, villas et terrains titrés à Yaoundé, Douala et sur l'ensemble du territoire national.</p>
+                    <div class="hero-cta-group">
+                        <a href="biens.html" class="btn btn-primary" data-i18n="hero.btnExplore">Explorer nos biens</a>
+                        <a href="https://wa.me/237655909868?text=Bonjour%20KEDIMAX%20IMMOBILIER,%20je%20souhaite%20un%20accompagnement%20personnalis%C3%A9." 
+                           target="_blank" rel="noopener" class="btn btn-outline-light" data-i18n="hero.btnContact">Parler à un conseiller</a>
+                    </div>
+                </div>
+
+                <!-- Moteur de recherche rapide -->
+                <div class="search-widget-card" id="search-widget">
+                    <div class="search-tabs">
+                        <button class="search-tab active" data-type="all" data-i18n="search.all">Tous les biens</button>
+                        <button class="search-tab" data-type="Acheter" data-i18n="search.buy">Acheter</button>
+                        <button class="search-tab" data-type="Louer" data-i18n="search.rent">Louer</button>
+                    </div>
+                    <form id="quick-search-form" class="search-form-grid">
+                        <div class="form-group">
+                            <label for="search-city" data-i18n="search.cityLabel">Ville / Region</label>
+                            <div class="input-icon">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <select id="search-city" class="form-control">
+                                    <option value="">Toutes les villes</option>
+                                    <option value="Yaoundé">Yaoundé</option>
+                                    <option value="Douala">Douala</option>
+                                    <option value="Kribi">Kribi</option>
+                                    <option value="Limbe">Limbe</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="search-category" data-i18n="search.categoryLabel">Type de bien</label>
+                            <div class="input-icon">
+                                <i class="fa-solid fa-house"></i>
+                                <select id="search-category" class="form-control">
+                                    <option value="">Tous les types</option>
+                                    <option value="Appartement">Appartement</option>
+                                    <option value="Villa">Villa / Maison</option>
+                                    <option value="Terrain">Terrain titré</option>
+                                    <option value="Bureau">Bureau / Commerce</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="search-budget" data-i18n="search.budgetLabel">Budget Max (FCFA)</label>
+                            <div class="input-icon">
+                                <i class="fa-solid fa-money-bill-wave"></i>
+                                <select id="search-budget" class="form-control">
+                                    <option value="">Tous les budgets</option>
+                                    <option value="150000">150 000 FCFA</option>
+                                    <option value="500000">500 000 FCFA</option>
+                                    <option value="5000000">5 000 000 FCFA</option>
+                                    <option value="50000000">50 000 000 FCFA</option>
+                                    <option value="100000000">100 000 000 FCFA+</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-group-submit">
+                            <button type="submit" class="btn btn-accent btn-full">
+                                <i class="fa-solid fa-magnifying-glass"></i> <span data-i18n="search.submit">Rechercher</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bandeau premium / services -->
+        <section class="trust-marquee" aria-label="Services KEDIMAX IMMOBILIER">
+            <div class="trust-marquee-track">
+                <span><i class="fa-solid fa-house"></i> ACHAT IMMOBILIER</span>
+                <span><i class="fa-solid fa-key"></i> LOCATION</span>
+                <span><i class="fa-solid fa-handshake"></i> VENTE</span>
+                <span><i class="fa-solid fa-building"></i> GESTION IMMOBILIÈRE</span>
+                <span><i class="fa-solid fa-file-signature"></i> CONSEIL FONCIER</span>
+                <span><i class="fa-solid fa-location-dot"></i> YAOUNDÉ</span>
+                <span><i class="fa-solid fa-location-dot"></i> DOUALA</span>
+                <span><i class="fa-solid fa-house"></i> ACHAT IMMOBILIER</span>
+                <span><i class="fa-solid fa-key"></i> LOCATION</span>
+                <span><i class="fa-solid fa-handshake"></i> VENTE</span>
+                <span><i class="fa-solid fa-building"></i> GESTION IMMOBILIÈRE</span>
+                <span><i class="fa-solid fa-file-signature"></i> CONSEIL FONCIER</span>
+            </div>
+        </section>
+
+        <!-- Section Biens en Vedette -->
+        <section class="section-padding bg-main">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-subtitle" data-i18n="featured.subtitle">Nos opportunités du moment</span>
+                    <h2 class="section-title" data-i18n="featured.title">Biens Immobiliers Sélectionnés</h2>
+                    <p class="section-desc">Chaque bien publié fait l'objet d'une vérification rigoureuse pour vous garantir des transactions en toute sécurité.</p>
+                </div>
+
+                <div class="properties-grid" id="featured-properties-container">
+                    <!-- Dynamic properties injected by JS -->
+                </div>
+
+                <div class="text-center mt-5">
+                    <a href="biens.html" class="btn btn-outline-primary" data-i18n="featured.viewAll">Voir tous les biens disponibles (<span id="total-properties-count">0</span>)</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Témoignages -->
+        <section class="section-padding testimonials-section bg-card">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-subtitle" data-i18n="testimonials.subtitle">La confiance au cœur de notre métier</span>
+                    <h2 class="section-title" data-i18n="testimonials.title">Témoignages clients</h2>
+                    <p class="section-desc" data-i18n="testimonials.desc">Un espace conçu pour présenter les retours authentiques des clients KEDIMAX, sans inventer de témoignages.</p>
+                </div>
+                <div class="testimonials-grid">
+                    <article class="testimonial-card testimonial-placeholder">
+                        <div class="testimonial-icon"><i class="fa-solid fa-quote-left"></i></div>
+                        <p data-i18n="testimonials.card1">Votre témoignage peut apparaître ici après validation par KEDIMAX IMMOBILIER.</p>
+                        <div class="testimonial-author"><strong data-i18n="testimonials.author1">Client KEDIMAX</strong><span data-i18n="testimonials.role1">Avis à publier</span></div>
+                    </article>
+                    <article class="testimonial-card testimonial-placeholder featured-testimonial">
+                        <div class="testimonial-icon"><i class="fa-solid fa-star"></i></div>
+                        <p data-i18n="testimonials.card2">Ajoutez ici un avis réel issu de Facebook, Google ou d'un formulaire client validé.</p>
+                        <div class="testimonial-author"><strong data-i18n="testimonials.author2">Client satisfait</strong><span data-i18n="testimonials.role2">Témoignage vérifié</span></div>
+                    </article>
+                    <article class="testimonial-card testimonial-placeholder">
+                        <div class="testimonial-icon"><i class="fa-solid fa-comments"></i></div>
+                        <p data-i18n="testimonials.card3">La section est prête à accueillir des témoignages authentiques avec photo, nom et contexte.</p>
+                        <div class="testimonial-author"><strong data-i18n="testimonials.author3">Votre prochain client</strong><span data-i18n="testimonials.role3">Espace témoignage</span></div>
+                    </article>
+                </div>
+                <div class="text-center mt-5">
+                    <a class="btn btn-outline-primary" href="https://www.facebook.com/1137958209411224" target="_blank" rel="noopener" data-i18n="testimonials.facebook">Voir KEDIMAX sur Facebook</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rubrique vidéo -->
+        <section class="section-padding video-section bg-main">
+            <div class="container">
+                <div class="section-header video-section-header">
+                    <div>
+                        <span class="section-subtitle" data-i18n="video.subtitle">Immersion & actualités</span>
+                        <h2 class="section-title" data-i18n="video.title">Découvrez KEDIMAX en vidéo</h2>
+                        <p class="section-desc" data-i18n="video.desc">Une rubrique dédiée aux visites de biens, présentations, conseils immobiliers et actualités publiées par KEDIMAX.</p>
+                    </div>
+                    <a class="btn btn-primary" href="https://www.facebook.com/1137958209411224" target="_blank" rel="noopener" data-i18n="video.facebook">Voir les vidéos Facebook</a>
+                </div>
+                <div class="video-showcase">
+                    <div class="video-cover">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=85" alt="Présentation immobilière KEDIMAX" loading="lazy">
+                        <div class="video-cover-overlay"></div>
+                        <a class="video-play" href="https://www.facebook.com/1137958209411224" target="_blank" rel="noopener" aria-label="Voir les vidéos KEDIMAX sur Facebook">
+                            <i class="fa-solid fa-play"></i>
+                        </a>
+                        <div class="video-cover-label">
+                            <span class="badge badge-accent">KEDIMAX IMMOBILIER</span>
+                            <h3 data-i18n="video.coverTitle">Visites, biens & conseils immobiliers</h3>
+                        </div>
+                    </div>
+                    <div class="video-side-panel">
+                        <div class="video-mini-card"><i class="fa-solid fa-video"></i><div><strong data-i18n="video.item1">Visites de biens</strong><span data-i18n="video.item1sub">Découvrez les espaces avant votre rendez-vous.</span></div></div>
+                        <div class="video-mini-card"><i class="fa-solid fa-lightbulb"></i><div><strong data-i18n="video.item2">Conseils immobiliers</strong><span data-i18n="video.item2sub">Des contenus utiles pour vos projets.</span></div></div>
+                        <div class="video-mini-card"><i class="fa-brands fa-facebook"></i><div><strong data-i18n="video.item3">Actualités sociales</strong><span data-i18n="video.item3sub">Retrouvez les publications vidéo KEDIMAX.</span></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Services -->
+        <section class="section-padding bg-card border-top border-bottom">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-subtitle">Notre Expertise</span>
+                    <h2 class="section-title">Des Services Immobilier Sur Mesure</h2>
+                    <p class="section-desc">KEDIMAX IMMOBILIER vous accompagne à chaque étape de votre parcours immobilier avec rigueur et transparence.</p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-key"></i></div>
+                        <h3 class="service-title">Location Immobilière</h3>
+                        <p class="service-text">Recherche d'appartements, villas et locaux commerciaux répondant rigoureusement à vos critères de confort et de sécurité.</p>
+                        <a href="services.html#location" class="service-link">En savoir plus <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-handshake"></i></div>
+                        <h3 class="service-title">Vente & Transaction</h3>
+                        <p class="service-text">Achat et vente de biens résidentiels, commerciaux et de terrains titrés vérifiés devant notaire.</p>
+                        <a href="services.html#vente" class="service-link">En savoir plus <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
+                        <h3 class="service-title">Gestion Immobilière</h3>
+                        <p class="service-text">Administration globale de votre patrimoine : sélection des locataires, recouvrement des loyers et entretien des biens.</p>
+                        <a href="services.html#gestion" class="service-link">En savoir plus <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                        <h3 class="service-title">Conseil & Accompagnement</h3>
+                        <p class="service-text">Assistance juridique et technique dans la vérification des titres fonciers et la régularisation de vos documents.</p>
+                        <a href="services.html#conseil" class="service-link">En savoir plus <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Proprietaires CTA -->
+        <section class="section-padding bg-primary text-light owner-cta-section">
+            <div class="container">
+                <div class="owner-grid">
+                    <div class="owner-content">
+                        <span class="badge badge-accent mb-2">Espace Propriétaires</span>
+                        <h2 class="text-white mb-3">Vous souhaitez vendre ou louer votre bien immobilier ?</h2>
+                        <p class="text-muted-light mb-4">Confiez votre bien à KEDIMAX IMMOBILIER. Nous mettons en œuvre un plan d'action commercial structuré pour maximiser la visibilité de votre propriété auprès d'acquéreurs ou locataires solvables.</p>
+                        <ul class="owner-benefits-list mb-4">
+                            <li><i class="fa-solid fa-circle-check text-accent"></i> Estimation juste basée sur la réalité du marché camerounais.</li>
+                            <li><i class="fa-solid fa-circle-check text-accent"></i> Filtrage rigoureux des candidats acquéreurs et locataires.</li>
+                            <li><i class="fa-solid fa-circle-check text-accent"></i> Sécurisation juridique de la transaction du début à la fin.</li>
+                        </ul>
+                    </div>
+
+                    <div class="owner-form-card">
+                        <h3 class="form-title">Confiez-nous votre bien</h3>
+                        <form id="owner-property-form" class="app-form">
+                            <div class="form-group">
+                                <label for="owner-name">Nom complet *</label>
+                                <input type="text" id="owner-name" class="form-control" required placeholder="Ex: Jean Dupont">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="owner-phone">Téléphone / WhatsApp *</label>
+                                    <input type="tel" id="owner-phone" class="form-control" required placeholder="+237 6XX XX XX XX">
+                                </div>
+                                <div class="form-group">
+                                    <label for="owner-type">Type de transaction *</label>
+                                    <select id="owner-type" class="form-control" required>
+                                        <option value="Mettre en location">Mettre en location</option>
+                                        <option value="Vendre mon bien">Vendre mon bien</option>
+                                        <option value="Confier la gestion">Confier en gestion</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="owner-location">Localisation du bien *</label>
+                                <input type="text" id="owner-location" class="form-control" required placeholder="Ex: Yaoundé, Bastos">
+                            </div>
+                            <div class="form-group">
+                                <label for="owner-message">Description rapide du bien</label>
+                                <textarea id="owner-message" class="form-control" rows="3" placeholder="Nombre de pièces, état, prix souhaité..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-accent btn-full">
+                                <i class="fa-brands fa-whatsapp"></i> Soumettre via WhatsApp
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Recherche sur Mesure (Demande Personnalisée) -->
+        <section class="section-padding bg-main">
+            <div class="container">
+                <div class="custom-request-box">
+                    <div class="row align-center">
+                        <div class="col-text">
+                            <h2>Vous ne trouvez pas le bien qui vous convient ?</h2>
+                            <p>Indiquez-nous précisément vos critères d'un simple message. Nos conseillers effectueront une recherche personnalisée dans notre réseau partenaire.</p>
+                        </div>
+                        <div class="col-btn">
+                            <a href="contact.html#main-contact-form" class="btn btn-primary">
+                                <i class="fa-solid fa-paper-plane"></i> Soumettre un mandat de recherche
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-app">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand-col">
+                    <a href="index.html" class="brand-logo footer-logo">
+                        <div class="logo-icon"><i class="fa-solid fa-building-user"></i></div>
+                        <div class="logo-text text-white">
+                            <span class="brand-name">KEDIMAX</span>
+                            <span class="brand-sub">IMMOBILIER</span>
+                        </div>
+                    </a>
+                    <p class="footer-text">Agence immobilière de référence au Cameroun. Accompagnement rigoureux et sécurisé pour vos projets d'achat, de vente, de location et de gestion foncière.</p>
+                    <div class="footer-socials">
+                        <a href="https://www.facebook.com/1137958209411224" target="_blank" rel="noopener" aria-label="Facebook KEDIMAX"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://wa.me/237655909868" target="_blank" aria-label="WhatsApp KEDIMAX"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links-col">
+                    <h4 class="footer-title">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+                        <li><a href="biens.html?type=achat">Acheter un bien</a></li>
+                        <li><a href="biens.html?type=location">Louer un bien</a></li>
+                        <li><a href="services.html" data-i18n="nav.services">Nos Services</a></li>
+                        <li><a href="a-propos.html">À Propos de nous</a></li>
+                        <li><a href="contact.html">Contact & Agences</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-col">
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html#location">Location Résidentielle</a></li>
+                        <li><a href="services.html#vente">Achat / Vente de Terrains</a></li>
+                        <li><a href="services.html#gestion">Gestion Locative</a></li>
+                        <li><a href="services.html#conseil">Conseil Foncier & Titres</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact-col">
+                    <h4 class="footer-title">Contact Direct</h4>
+                    <ul class="footer-contact-list">
+                        <li><i class="fa-solid fa-location-dot"></i> Yaoundé & Douala, Cameroun</li>
+                        <li><i class="fa-solid fa-phone"></i> +237 6 99 90 28 88</li>
+                        <li><i class="fa-solid fa-phone"></i> +237 6 77 90 28 88</li>
+                        <li><i class="fa-solid fa-envelope"></i> contact@kedimax-immobilier.cm</li>
+                        <li><i class="fa-solid fa-clock"></i> Lun - Sam : 08h00 - 18h00</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom border-top">
+                <p>&copy; 2026 KEDIMAX IMMOBILIER. Tous droits réservés. Conçu dans le respect du cadre juridique immobilier camerounais.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Flottant WhatsApp Mobile/Desktop -->
+    <a href="https://wa.me/237655909868?text=Bonjour%20KEDIMAX%20IMMOBILIER,%20je%20souhaite%20des%20renseignements." 
+       target="_blank" rel="noopener" class="whatsapp-float-btn" aria-label="Contacter sur WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Discussion instantanée</span>
+    </a>
+
+    <!-- Scripts -->
+    <script src="js/properties.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détail du bien | KEDIMAX IMMOBILIER</title>
+    <meta name="description" content="Consultez la fiche complète du bien immobilier proposé par KEDIMAX IMMOBILIER. Photos, prix, localisation et prise de rendez-vous.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="navbar-sticky" id="main-header">
+        <div class="container navbar-wrapper">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-icon"><i class="fa-solid fa-building-user"></i></div>
+                <div class="logo-text">
+                    <span class="brand-name">KEDIMAX</span>
+                    <span class="brand-sub">IMMOBILIER</span>
+                </div>
+            </a>
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link" data-i18n="nav.home">Accueil</a></li>
+                    <li><a href="biens.html" class="nav-link active">Nos Biens</a></li>
+                    <li><a href="contact.html" class="nav-link" data-i18n="nav.contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="navbar-actions">
+                <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Switch to English"><span>EN</span></button>
+                <a href="https://wa.me/237655909868" target="_blank" rel="noopener" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-main bg-main" id="property-detail-page">
+        <div class="container section-padding">
+            <a href="biens.html" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Retour au catalogue</a>
+
+            <div id="detail-content-area">
+                <!-- Dynamically populated detail view via properties.js -->
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-app">
+        <div class="container footer-bottom text-center">
+            <p>&copy; 2026 KEDIMAX IMMOBILIER. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="js/properties.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const propId = params.get('id');
+            renderPropertyDetails(propId);
+        });
+    </script>
+</body>
+</html>

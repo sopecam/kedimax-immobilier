@@ -1,0 +1,86 @@
+/* ==========================================================================
+   RESPONSIVE LAYOUT BREAKPOINTS
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .hero-title { font-size: 2.2rem; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+  .owner-grid { grid-template-columns: 1fr; gap: 30px; }
+  .detail-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .hide-mobile { display: none !important; }
+  .mobile-toggle { display: flex; }
+
+  .nav-menu {
+    position: fixed;
+    top: 79px;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+    padding: 20px;
+    transform: translateY(-150%);
+    transition: transform 0.3s ease;
+  }
+
+  .nav-menu.active {
+    transform: translateY(0);
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .search-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-section { padding: 60px 0 80px; }
+  .hero-title { font-size: 1.8rem; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .detail-gallery { grid-template-columns: 1fr; height: 260px; }
+  .gallery-sub { display: none; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 15px; }
+  .hero-cta-group .btn, .search-form-grid .btn, .contact-form-card .btn { width: 100%; }
+  .hero-cta-group { flex-direction: column; }
+}
+@media(max-width:768px){.navbar-actions .lang-toggle{display:flex}.navbar-actions .btn-whatsapp.hide-mobile{display:none!important}.nav-menu{z-index:1000}.navbar-sticky{z-index:1100}}
+
+
+/* Premium sections responsive */
+@media (max-width: 900px) {
+  .testimonials-grid { grid-template-columns:1fr; }
+  .video-section-header { align-items:flex-start; flex-direction:column; }
+  .video-showcase { grid-template-columns:1fr; }
+  .video-cover, .video-cover img { min-height:360px; }
+}
+@media (max-width: 600px) {
+  .trust-marquee-track { gap:28px; font-size:.68rem; padding:13px 0; }
+  .testimonial-card { padding:24px; }
+  .video-cover, .video-cover img { min-height:290px; }
+  .video-cover-label { left:20px; bottom:20px; right:20px; }
+  .video-cover-label h3 { font-size:1.45rem; }
+  .video-play { width:64px; height:64px; }
+  .video-mini-card { padding:20px; }
+}
+
+
+@media (max-width: 768px) {
+  .search-tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    padding-bottom: 8px;
+  }
+  .search-tab {
+    flex: 0 0 auto;
+    min-height: 44px;
+  }
+}

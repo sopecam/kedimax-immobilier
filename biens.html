@@ -1,152 +1,42 @@
 <!DOCTYPE html>
 <html lang="fr" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nos Biens Immobiliers | KEDIMAX IMMOBILIER</title>
-    <meta name="description" content="Explorez l'ensemble des biens disponibles à l'achat et à la location chez KEDIMAX IMMOBILIER au Cameroun. Filter par ville, type et budget.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="responsive.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KEDIMAX IMMOBILIER | Nos Biens</title>
+<meta name="description" content="Explorez les biens disponibles à l'achat et à la location chez KEDIMAX IMMOBILIER au Cameroun.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="responsive.css">
 </head>
 <body>
-
-    <!-- Navbar -->
-    <header class="navbar-sticky" id="main-header">
-        <div class="container navbar-wrapper">
-            <a href="index.html" class="brand-logo">
-                <div class="logo-icon"><i class="fa-solid fa-building-user"></i></div>
-                <div class="logo-text">
-                    <span class="brand-name">KEDIMAX</span>
-                    <span class="brand-sub">IMMOBILIER</span>
-                </div>
-            </a>
-            <nav class="nav-menu" id="nav-menu">
-                <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link" data-i18n="nav.home">Accueil</a></li>
-                    <li><a href="biens.html" class="nav-link active">Nos Biens</a></li>
-                    <li><a href="services.html" class="nav-link" data-i18n="nav.services">Nos Services</a></li>
-                    <li><a href="a-propos.html" class="nav-link" data-i18n="nav.about">À Propos</a></li>
-                    <li><a href="contact.html" class="nav-link" data-i18n="nav.contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="navbar-actions">
-                <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Thème"><i class="fa-solid fa-moon"></i></button>
-                <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Switch to English"><span>EN</span></button>
-                <a href="https://wa.me/237655909868" target="_blank" rel="noopener" class="btn btn-whatsapp hide-mobile"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-                <button type="button" class="mobile-toggle" id="mobile-toggle"><i class="fa-solid fa-bars"></i></button>
-            </div>
-        </div>
-    </header>
-
-    <main class="page-main bg-main">
-        <!-- Banner Header -->
-        <div class="page-banner bg-primary text-white">
-            <div class="container">
-                <h1 class="page-title">Catalogue Immobiliers</h1>
-                <p class="page-subtitle">Trouvez la propriété adaptée à vos attentes à Yaoundé, Douala et leurs environs.</p>
-            </div>
-        </div>
-
-        <div class="container section-padding">
-            <div class="catalog-layout">
-                <!-- Sidebar Filters -->
-                <aside class="filter-sidebar">
-                    <div class="filter-card">
-                        <div class="filter-header">
-                            <h3><i class="fa-solid fa-sliders"></i> Filtrer les biens</h3>
-                            <button type="button" id="reset-filters" class="btn-text">Réinitialiser</button>
-                        </div>
-                        <form id="catalog-filter-form">
-                            <div class="form-group">
-                                <label>Mode de transaction</label>
-                                <select id="filter-type" class="form-control">
-                                    <option value="">Tous les types</option>
-                                    <option value="Acheter">Acheter</option>
-                                    <option value="Louer">Louer</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Catégorie</label>
-                                <select id="filter-category" class="form-control">
-                                    <option value="">Toutes catégories</option>
-                                    <option value="Appartement">Appartement</option>
-                                    <option value="Villa">Villa / Maison</option>
-                                    <option value="Terrain">Terrain titré</option>
-                                    <option value="Bureau">Bureau / Commerce</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Ville</label>
-                                <select id="filter-city" class="form-control">
-                                    <option value="">Toutes les villes</option>
-                                    <option value="Yaoundé">Yaoundé</option>
-                                    <option value="Douala">Douala</option>
-                                    <option value="Kribi">Kribi</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Chambres minimum</label>
-                                <select id="filter-bedrooms" class="form-control">
-                                    <option value="">Indifférent</option>
-                                    <option value="1">1 chambre +</option>
-                                    <option value="2">2 chambres +</option>
-                                    <option value="3">3 chambres +</option>
-                                    <option value="4">4 chambres +</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Prix Maximum (FCFA)</label>
-                                <input type="number" id="filter-max-price" class="form-control" placeholder="Ex: 500000">
-                            </div>
-                        </form>
-                    </div>
-                </aside>
-
-                <!-- Property Grid -->
-                <div class="catalog-content">
-                    <div class="catalog-results-header">
-                        <p class="results-count">Affichage de <span id="displayed-count">0</span> bien(s)</p>
-                        <div class="sort-wrapper">
-                            <label for="sort-select">Trier par :</label>
-                            <select id="sort-select" class="form-control form-control-sm">
-                                <option value="default">Récents</option>
-                                <option value="price-asc">Prix : Croissant</option>
-                                <option value="price-desc">Prix : Décroissant</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="properties-grid" id="catalog-properties-container">
-                        <!-- Dynamic Grid Rendering -->
-                    </div>
-
-                    <div id="no-results-msg" class="no-results-box hidden">
-                        <i class="fa-solid fa-house-circle-xmark"></i>
-                        <h3>Aucun bien ne correspond à vos critères.</h3>
-                        <p>Modifiez vos filtres ou contactez un conseiller pour une recherche sur mesure.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <footer class="footer-app">
-        <div class="container footer-bottom text-center">
-            <p>&copy; 2026 KEDIMAX IMMOBILIER. Tous droits réservés.</p>
-        </div>
-    </footer>
-
-  <script src="main.js"></script>
-<script src="properties.js"></script>
-<script src="search.js"></script>
-</body>
-</html>
+<header class="navbar-sticky" id="main-header"><div class="container navbar-wrapper">
+<a href="index.html" class="brand-logo"><div class="logo-icon"><i class="fa-solid fa-building-user"></i></div><div class="logo-text"><span class="brand-name">KEDIMAX</span><span class="brand-sub">IMMOBILIER</span></div></a>
+<nav class="nav-menu" id="nav-menu"><ul class="nav-list">
+<li><a href="index.html" class="nav-link" data-i18n="nav.home">Accueil</a></li>
+<li><a href="biens.html" class="nav-link active" data-i18n="nav.properties">Nos Biens</a></li>
+<li><a href="services.html" class="nav-link" data-i18n="nav.services">Nos Services</a></li>
+<li><a href="a-propos.html" class="nav-link" data-i18n="nav.about">À Propos</a></li>
+<li><a href="contact.html" class="nav-link" data-i18n="nav.contact">Contact</a></li>
+</ul></nav>
+<div class="navbar-actions"><button type="button" class="theme-toggle" id="theme-toggle" aria-label="Changer le thème"></button><button type="button" class="lang-toggle" id="lang-toggle"><span>EN</span></button><a href="https://wa.me/237657519974" target="_blank" rel="noopener" class="btn btn-whatsapp hide-mobile"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="button.whatsapp">WhatsApp</span></a><button type="button" class="mobile-toggle" id="mobile-toggle" aria-expanded="false"><i class="fa-solid fa-bars"></i></button></div>
+</div></header>
+<main class="page-main bg-main">
+<div class="page-banner bg-primary text-white"><div class="container"><h1 class="page-title" data-i18n="properties.title">Catalogue Immobilier</h1><p class="page-subtitle" data-i18n="properties.subtitle">Trouvez la propriété adaptée à vos attentes à Yaoundé, Douala et leurs environs.</p></div></div>
+<div class="container section-padding"><div class="catalog-layout">
+<aside class="filter-sidebar"><div class="filter-card"><div class="filter-header"><h3><i class="fa-solid fa-sliders"></i> <span data-i18n="properties.filters">Filtrer les biens</span></h3><button type="button" id="reset-filters" class="btn-text" data-i18n="properties.reset">Réinitialiser</button></div>
+<form id="catalog-filter-form">
+<div class="form-group"><label data-i18n="properties.transaction">Mode de transaction</label><select id="filter-type" class="form-control"><option value="" data-i18n="properties.allTypes">Tous les types</option><option value="Acheter" data-i18n="nav.buy">Acheter</option><option value="Louer" data-i18n="nav.rent">Louer</option></select></div>
+<div class="form-group"><label data-i18n="properties.category">Catégorie</label><select id="filter-category" class="form-control"><option value="" data-i18n="properties.allCategories">Toutes catégories</option><option value="Appartement">Appartement</option><option value="Villa">Villa / Maison</option><option value="Terrain">Terrain titré</option><option value="Bureau">Bureau / Commerce</option></select></div>
+<div class="form-group"><label data-i18n="properties.city">Ville</label><select id="filter-city" class="form-control"><option value="" data-i18n="properties.allCities">Toutes les villes</option><option value="Yaoundé">Yaoundé</option><option value="Douala">Douala</option><option value="Kribi">Kribi</option></select></div>
+<div class="form-group"><label data-i18n="properties.bedrooms">Chambres minimum</label><select id="filter-bedrooms" class="form-control"><option value="" data-i18n="properties.indifferent">Indifférent</option><option value="1">1 chambre +</option><option value="2">2 chambres +</option><option value="3">3 chambres +</option><option value="4">4 chambres +</option></select></div>
+<div class="form-group"><label data-i18n="properties.price">Prix Maximum (FCFA)</label><input type="number" id="filter-max-price" class="form-control" placeholder="Ex: 500000"></div>
+</form></div></aside>
+<div class="catalog-content"><div class="catalog-results-header"><p class="results-count"><span data-i18n="properties.showing">Affichage de</span> <span id="displayed-count">0</span> <span data-i18n="properties.count">bien(s)</span></p><div class="sort-wrapper"><label for="sort-select" data-i18n="properties.sort">Trier par :</label><select id="sort-select" class="form-control form-control-sm"><option value="default" data-i18n="properties.recent">Récents</option><option value="price-asc" data-i18n="properties.priceAsc">Prix : Croissant</option><option value="price-desc" data-i18n="properties.priceDesc">Prix : Décroissant</option></select></div></div>
+<div class="properties-grid" id="catalog-properties-container"></div>
+<div id="no-results-msg" class="no-results-box hidden"><i class="fa-solid fa-house-circle-xmark"></i><h3 data-i18n="properties.noResults">Aucun bien ne correspond à vos critères.</h3><p data-i18n="properties.noResultsText">Modifiez vos filtres ou contactez un conseiller pour une recherche sur mesure.</p></div>
+</div></div></div></main>
+<footer class="footer-app"><div class="container footer-bottom text-center"><p>&copy; 2026 KEDIMAX IMMOBILIER. <span data-i18n="footer.rights">Tous droits réservés.</span></p></div></footer>
+<script src="main.js"></script><script src="properties.js"></script><script src="search.js"></script>
+</body></html>

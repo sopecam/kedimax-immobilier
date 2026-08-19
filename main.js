@@ -1,17 +1,13 @@
 /* ============================================================
    KEDIMAX IMMOBILIER — SCRIPT CENTRAL
-   - FR / EN global translation
-   - Language persisted across pages
-   - Dark / light mode
-   - Mobile menu
-   - Quick search
-   - WhatsApp forms
+   FR / EN • thème • menu mobile • recherche • WhatsApp
    ============================================================ */
 (function () {
   'use strict';
 
-  const STORAGE_LANGUAGE = 'kedimax_language';
-  const STORAGE_THEME = 'kedimax_theme';
+  const LANGUAGE_KEY = 'kedimax_language';
+  const LEGACY_LANGUAGE_KEY = 'kedimax_lang';
+  const THEME_KEY = 'kedimax_theme';
   const DEFAULT_LANGUAGE = 'fr';
   const WHATSAPP = '237657519974';
 
@@ -28,8 +24,7 @@
       'services.title':'Nos services immobiliers','services.subtitle':'Des solutions pour accompagner vos projets d’achat, de vente, de location et de gestion.','services.location':'Location résidentielle','services.locationText':'Accompagnement dans la recherche et la location de logements adaptés à vos besoins, avec mise en relation et organisation des visites.','services.viewRentals':'Voir les biens à louer','services.sale':'Achat & vente','services.saleText':'Découvrez des opportunités immobilières et bénéficiez d’un accompagnement dans votre projet d’acquisition ou de cession.','services.viewSales':'Voir les biens à acheter','services.management':'Gestion locative','services.managementText':'Confiez la gestion de votre bien et centralisez vos demandes auprès d’un interlocuteur dédié.','services.owner':'Confier mon bien','services.advice':'Conseil foncier & immobilier','services.adviceText':'Un accompagnement pour mieux structurer vos démarches et vos décisions immobilières.','services.advisor':'Parler à un conseiller',
       'about.title':'À propos de KEDIMAX','about.subtitle':'Une approche orientée accompagnement et proximité.','about.heading':'Votre projet immobilier mérite un accompagnement clair.','about.text':'KEDIMAX IMMOBILIER accompagne les particuliers et propriétaires dans leurs démarches immobilières au Cameroun, notamment pour l’achat, la vente, la location et la gestion.','about.item1':'Recherche et présentation de biens','about.item2':'Organisation des prises de contact et visites','about.item3':'Accompagnement des propriétaires','about.item4':'Conseil immobilier et foncier','about.need':'Besoin d’un conseiller ?','about.needText':'Expliquez-nous votre projet et nous vous orienterons vers la solution adaptée.','about.describe':'Décrire mon projet',
       'contact.title':'Contactez Nos Conseillers','contact.subtitle':'Nous sommes à votre disposition pour vous orienter dans vos démarches immobilières.','contact.phone':'Téléphone & WhatsApp','contact.email':'Email officiel','contact.presence':'Présence & Intervention','contact.coverage':'Couverture nationale pour projets fonciers','contact.formTitle':'Envoyez-nous un message','contact.name':'Nom et Prénom *','contact.phoneLabel':'Téléphone / WhatsApp *','contact.emailLabel':'Email','contact.subject':'Objet de votre demande','contact.message':'Message *','contact.send':'Envoyer le message','contact.namePlaceholder':'Votre nom','contact.emailPlaceholder':'exemple@domaine.cm','contact.messagePlaceholder':'Précisez votre besoin...',
-      'common.buy':'Acheter','common.rent':'Louer','common.details':'Voir les détails','common.contact':'Contacter','common.loading':'Chargement...','common.error':'Une erreur est survenue.','common.retry':'Réessayer','common.all':'Tous',
-      'footer.rights':'Tous droits réservés.'
+      'common.buy':'Acheter','common.rent':'Louer','common.details':'Voir les détails','common.contact':'Contacter','common.loading':'Chargement...','common.error':'Une erreur est survenue.','common.retry':'Réessayer','common.all':'Tous','footer.rights':'Tous droits réservés.'
     },
     en: {
       'nav.home':'Home','nav.properties':'Properties','nav.buy':'Buy','nav.rent':'Rent','nav.services':'Our Services','nav.about':'About Us','nav.contact':'Contact',
@@ -43,29 +38,25 @@
       'services.title':'Our Real Estate Services','services.subtitle':'Solutions to support your purchase, sale, rental and property management projects.','services.location':'Residential Rental','services.locationText':'Support in finding and renting homes suited to your needs, including introductions and property viewing arrangements.','services.viewRentals':'View rental properties','services.sale':'Buying & Selling','services.saleText':'Discover real estate opportunities and receive professional support throughout your purchase or sale project.','services.viewSales':'View properties for sale','services.management':'Property Management','services.managementText':'Entrust us with the management of your property and centralize your requests through a dedicated contact.','services.owner':'Entrust my property','services.advice':'Land & Real Estate Advice','services.adviceText':'Professional support to help you structure your real estate procedures and make informed decisions.','services.advisor':'Talk to an advisor',
       'about.title':'About KEDIMAX','about.subtitle':'A support-oriented and local approach.','about.heading':'Your real estate project deserves clear support.','about.text':'KEDIMAX IMMOBILIER supports individuals and property owners with their real estate projects in Cameroon, including buying, selling, renting and management.','about.item1':'Property search and presentation','about.item2':'Contact and viewing arrangements','about.item3':'Support for property owners','about.item4':'Real estate and land advice','about.need':'Need an advisor?','about.needText':'Tell us about your project and we will guide you toward the right solution.','about.describe':'Describe my project',
       'contact.title':'Contact Our Advisors','contact.subtitle':'We are available to guide you through your real estate procedures.','contact.phone':'Phone & WhatsApp','contact.email':'Official Email','contact.presence':'Presence & Services','contact.coverage':'National coverage for land projects','contact.formTitle':'Send us a message','contact.name':'Full Name *','contact.phoneLabel':'Phone / WhatsApp *','contact.emailLabel':'Email','contact.subject':'Request subject','contact.message':'Message *','contact.send':'Send message','contact.namePlaceholder':'Your name','contact.emailPlaceholder':'example@domain.com','contact.messagePlaceholder':'Tell us what you need...',
-      'common.buy':'Buy','common.rent':'Rent','common.details':'View details','common.contact':'Contact','common.loading':'Loading...','common.error':'An error occurred.','common.retry':'Retry','common.all':'All',
-      'footer.rights':'All rights reserved.'
+      'common.buy':'Buy','common.rent':'Rent','common.details':'View details','common.contact':'Contact','common.loading':'Loading...','common.error':'An error occurred.','common.retry':'Retry','common.all':'All','footer.rights':'All rights reserved.'
     }
   };
 
-  function currentLanguage() {
-    const saved = localStorage.getItem(STORAGE_LANGUAGE);
+  function getLanguage() {
+    const saved = localStorage.getItem(LANGUAGE_KEY) || localStorage.getItem(LEGACY_LANGUAGE_KEY);
     return saved === 'en' || saved === 'fr' ? saved : DEFAULT_LANGUAGE;
   }
 
-  function translateValue(lang, key) {
+  function value(lang, key) {
     return T[lang]?.[key] ?? T[DEFAULT_LANGUAGE]?.[key] ?? null;
   }
 
-  function setElementText(el, value) {
-    const icon = el.querySelector(':scope > i');
-    if (icon) {
-      el.textContent = '';
-      el.appendChild(icon);
-      el.appendChild(document.createTextNode(' ' + value));
-    } else {
-      el.textContent = value;
-    }
+  function replaceDirectText(el, text) {
+    const children = [...el.childNodes];
+    const icon = children.find(n => n.nodeType === 1 && n.tagName === 'I');
+    children.filter(n => n.nodeType === 3).forEach(n => n.remove());
+    const node = document.createTextNode((icon ? ' ' : '') + text);
+    if (icon && icon.parentNode === el) icon.after(node); else el.prepend(node);
   }
 
   function applyLanguage(lang) {
@@ -74,37 +65,36 @@
     document.documentElement.dataset.language = language;
 
     document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      const value = translateValue(language, key);
-      if (value !== null) setElementText(el, value);
+      const text = value(language, el.getAttribute('data-i18n'));
+      if (text !== null) replaceDirectText(el, text);
     });
 
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-      const value = translateValue(language, el.getAttribute('data-i18n-placeholder'));
-      if (value !== null) el.setAttribute('placeholder', value);
+      const text = value(language, el.getAttribute('data-i18n-placeholder'));
+      if (text !== null) el.placeholder = text;
     });
 
     document.querySelectorAll('[data-i18n-title]').forEach(el => {
-      const value = translateValue(language, el.getAttribute('data-i18n-title'));
-      if (value !== null) el.setAttribute('title', value);
+      const text = value(language, el.getAttribute('data-i18n-title'));
+      if (text !== null) el.title = text;
     });
 
     document.querySelectorAll('[data-i18n-aria-label]').forEach(el => {
-      const value = translateValue(language, el.getAttribute('data-i18n-aria-label'));
-      if (value !== null) el.setAttribute('aria-label', value);
+      const text = value(language, el.getAttribute('data-i18n-aria-label'));
+      if (text !== null) el.setAttribute('aria-label', text);
     });
 
     document.querySelectorAll('.lang-toggle').forEach(btn => {
-      const span = btn.querySelector('span') || document.createElement('span');
+      let span = btn.querySelector('span');
+      if (!span) { span = document.createElement('span'); btn.appendChild(span); }
       span.textContent = language === 'fr' ? 'EN' : 'FR';
-      if (!span.parentNode) btn.appendChild(span);
       btn.setAttribute('aria-label', language === 'fr' ? 'Passer en anglais' : 'Passer en français');
       btn.title = language === 'fr' ? 'English' : 'Français';
     });
 
-    localStorage.setItem(STORAGE_LANGUAGE, language);
+    localStorage.setItem(LANGUAGE_KEY, language);
+    localStorage.setItem(LEGACY_LANGUAGE_KEY, language);
     window.dispatchEvent(new CustomEvent('kedimax:languageChanged', { detail: { language } }));
-    return language;
   }
 
   function initLanguage() {
@@ -112,128 +102,60 @@
       if (btn.dataset.languageBound === '1') return;
       btn.dataset.languageBound = '1';
       btn.type = 'button';
-      btn.addEventListener('click', event => {
-        event.preventDefault();
-        applyLanguage(currentLanguage() === 'fr' ? 'en' : 'fr');
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        applyLanguage(getLanguage() === 'fr' ? 'en' : 'fr');
       });
     });
-    applyLanguage(currentLanguage());
+    applyLanguage(getLanguage());
   }
 
   function initTheme() {
-    const root = document.documentElement;
-    const toggle = document.getElementById('theme-toggle');
+    const root = document.documentElement, toggle = document.getElementById('theme-toggle');
     if (!toggle) return;
-    root.dataset.theme = localStorage.getItem(STORAGE_THEME) || 'light';
-    const render = () => {
-      const dark = root.dataset.theme === 'dark';
-      toggle.innerHTML = dark ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
-      toggle.setAttribute('aria-label', dark ? 'Activer le mode clair' : 'Activer le mode sombre');
-      toggle.title = dark ? 'Mode clair' : 'Mode sombre';
-    };
+    root.dataset.theme = localStorage.getItem(THEME_KEY) || 'light';
+    const render = () => { const dark = root.dataset.theme === 'dark'; toggle.innerHTML = dark ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>'; };
     render();
     if (toggle.dataset.themeBound === '1') return;
     toggle.dataset.themeBound = '1';
-    toggle.addEventListener('click', () => {
-      root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
-      localStorage.setItem(STORAGE_THEME, root.dataset.theme);
-      render();
-    });
+    toggle.addEventListener('click', () => { root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark'; localStorage.setItem(THEME_KEY, root.dataset.theme); render(); });
   }
 
   function initMobileMenu() {
-    const toggle = document.getElementById('mobile-toggle');
-    const menu = document.getElementById('nav-menu');
+    const toggle = document.getElementById('mobile-toggle'), menu = document.getElementById('nav-menu');
     if (!toggle || !menu || toggle.dataset.menuBound === '1') return;
     toggle.dataset.menuBound = '1';
-    const close = () => {
-      menu.classList.remove('active');
-      toggle.setAttribute('aria-expanded', 'false');
-      toggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
-    };
-    toggle.addEventListener('click', () => {
-      const open = menu.classList.toggle('active');
-      toggle.setAttribute('aria-expanded', String(open));
-      toggle.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
-    });
+    const close = () => { menu.classList.remove('active'); toggle.setAttribute('aria-expanded','false'); toggle.innerHTML='<i class="fa-solid fa-bars"></i>'; };
+    toggle.addEventListener('click', () => { const open = menu.classList.toggle('active'); toggle.setAttribute('aria-expanded', String(open)); toggle.innerHTML=open?'<i class="fa-solid fa-xmark"></i>':'<i class="fa-solid fa-bars"></i>'; });
     menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
   }
 
   function initQuickSearch() {
-    const form = document.getElementById('quick-search-form');
-    const widget = document.getElementById('search-widget');
+    const form = document.getElementById('quick-search-form'), widget = document.getElementById('search-widget');
     if (!form || !widget || form.dataset.searchBound === '1') return;
     form.dataset.searchBound = '1';
-    const tabs = [...widget.querySelectorAll('.search-tab')];
-    let selectedType = '';
-    const selectTab = tab => {
-      selectedType = tab.dataset.type === 'Acheter' || tab.dataset.type === 'Louer' ? tab.dataset.type : '';
-      tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
-      tab.classList.add('active');
-      tab.setAttribute('aria-selected', 'true');
-    };
-    tabs.forEach(tab => {
-      tab.type = 'button';
-      tab.setAttribute('role', 'tab');
-      tab.addEventListener('click', () => selectTab(tab));
-    });
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const params = new URLSearchParams();
-      if (selectedType) params.set('type', selectedType === 'Acheter' ? 'achat' : 'location');
-      const city = document.getElementById('search-city')?.value || '';
-      const category = document.getElementById('search-category')?.value || '';
-      const budget = document.getElementById('search-budget')?.value || '';
-      if (city) params.set('city', city);
-      if (category) params.set('category', category);
-      if (budget) params.set('max', budget);
-      window.location.href = 'biens.html' + (params.toString() ? '?' + params.toString() : '');
-    });
+    const tabs = [...widget.querySelectorAll('.search-tab')]; let selectedType = '';
+    const selectTab = tab => { selectedType = ['Acheter','Louer'].includes(tab.dataset.type) ? tab.dataset.type : ''; tabs.forEach(t=>{t.classList.remove('active');t.setAttribute('aria-selected','false');}); tab.classList.add('active'); tab.setAttribute('aria-selected','true'); };
+    tabs.forEach(tab => { tab.type='button'; tab.addEventListener('click',()=>selectTab(tab)); });
+    form.addEventListener('submit', e => { e.preventDefault(); const p=new URLSearchParams(); if(selectedType)p.set('type',selectedType==='Acheter'?'achat':'location'); const city=document.getElementById('search-city')?.value||'', cat=document.getElementById('search-category')?.value||'', budget=document.getElementById('search-budget')?.value||''; if(city)p.set('city',city); if(cat)p.set('category',cat); if(budget)p.set('max',budget); window.location.href='biens.html'+(p.toString()?'?'+p.toString():''); });
   }
 
-  function wa(message) {
-    window.open('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(message), '_blank', 'noopener,noreferrer');
-  }
+  function wa(message) { window.open('https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(message),'_blank','noopener,noreferrer'); }
 
   function initOwnerForm() {
-    const form = document.getElementById('owner-property-form');
-    if (!form || form.dataset.bound === '1') return;
-    form.dataset.bound = '1';
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const get = id => document.getElementById(id)?.value.trim() || '';
-      const name=get('owner-name'), phone=get('owner-phone'), type=get('owner-type'), location=get('owner-location'), message=get('owner-message');
-      if (!name || !phone || !location) return;
-      wa(`Bonjour KEDIMAX IMMOBILIER,\nJe souhaite vous confier mon bien immobilier.\nNom : ${name}\nTéléphone : ${phone}\nDemande : ${type}\nLocalisation : ${location}\nDescription : ${message || 'Non renseignée'}`);
-    });
+    const form=document.getElementById('owner-property-form'); if(!form||form.dataset.bound==='1')return; form.dataset.bound='1';
+    form.addEventListener('submit',e=>{e.preventDefault();const get=id=>document.getElementById(id)?.value.trim()||'',name=get('owner-name'),phone=get('owner-phone'),type=get('owner-type'),location=get('owner-location'),message=get('owner-message');if(!name||!phone||!location)return;wa(`Bonjour KEDIMAX IMMOBILIER,\nJe souhaite vous confier mon bien immobilier.\nNom : ${name}\nTéléphone : ${phone}\nDemande : ${type}\nLocalisation : ${location}\nDescription : ${message||'Non renseignée'}`);});
   }
 
   function initContactForm() {
-    const form = document.getElementById('main-contact-form');
-    if (!form || form.dataset.bound === '1') return;
-    form.dataset.bound = '1';
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const get = id => document.getElementById(id)?.value.trim() || '';
-      const name=get('c-name'), phone=get('c-phone'), email=get('c-email'), subject=get('c-subject'), message=get('c-message');
-      if (!name || !phone || !message) return;
-      wa(`Bonjour KEDIMAX IMMOBILIER,\nNom : ${name}\nTéléphone : ${phone}\nEmail : ${email || 'Non renseigné'}\nObjet : ${subject}\nMessage : ${message}`);
-    });
+    const form=document.getElementById('main-contact-form'); if(!form||form.dataset.bound==='1')return; form.dataset.bound='1';
+    form.addEventListener('submit',e=>{e.preventDefault();const get=id=>document.getElementById(id)?.value.trim()||'',name=get('c-name'),phone=get('c-phone'),email=get('c-email'),subject=get('c-subject'),message=get('c-message');if(!name||!phone||!message)return;wa(`Bonjour KEDIMAX IMMOBILIER,\nNom : ${name}\nTéléphone : ${phone}\nEmail : ${email||'Non renseigné'}\nObjet : ${subject}\nMessage : ${message}`);});
   }
 
-  function init() {
-    initTheme();
-    initMobileMenu();
-    initLanguage();
-    initQuickSearch();
-    initOwnerForm();
-    initContactForm();
-  }
+  function init(){initTheme();initMobileMenu();initLanguage();initQuickSearch();initOwnerForm();initContactForm();}
 
-  window.KEDIMAX_LANGUAGE = { set: applyLanguage, get: currentLanguage, translations: T };
-  window.kedimaxApplyLanguage = applyLanguage;
-  window.kedimaxWhatsApp = wa;
-
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-  else init();
+  window.KEDIMAX_LANGUAGE={set:applyLanguage,get:getLanguage,translations:T};
+  window.kedimaxApplyLanguage=applyLanguage;
+  window.kedimaxWhatsApp=wa;
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
